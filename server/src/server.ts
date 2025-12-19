@@ -1,6 +1,7 @@
 import cors from 'cors';
 import express, { Express } from 'express';
-import unhandledRoutesHandler from './routers/unhandledRouter';
+import NoteRouter from './routers/noteRouter';
+import UnhandledRouter from './routers/unhandledRouter';
 
 export const createServer = (): Express => {
 	// Initialize server
@@ -12,10 +13,11 @@ export const createServer = (): Express => {
 	// Parse JSON responses
 	app.use(express.json());
 
-	// TODO: Route handlers
+	// API Route handler
+	app.use('/api', NoteRouter);
 
 	// Unhandled routes handler
-	app.use(unhandledRoutesHandler);
+	app.use(UnhandledRouter);
 
 	// Return new server instance
 	return app;
