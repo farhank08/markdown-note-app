@@ -7,9 +7,9 @@ const router: Router = Router();
 router.use((req: Request, res: Response) => {
 	// Handle unhandled route error
 	console.error(
-		`Route request ${chalk.yellowBright(req.method)} ${req.path} ${chalk.red(
+		`Route request ${chalk.yellowBright(req.method)} ${req.url} ${chalk.redBright(
 			'failed'
-		)} at ${new Date().toLocaleString()}: ${chalk.red('Unhandled')}`
+		)} at ${new Date().toLocaleString()}: ${chalk.redBright('Unhandled')}`
 	);
 	return res.status(404).json({
 		success: false,

@@ -3,19 +3,24 @@ import markdownToTxt from 'markdown-to-txt';
 import { parse } from 'marked';
 import sanitizeHtml from 'sanitize-html';
 
-// TODO: Check grammer via third-party API
-export const checkGrammer = async (markdown: string) => {
-	// Parse markdown to unsanitized text
-	const dirtyText: string = markdownToTxt(markdown);
+// Check grammer via third-party API
+export const checkGrammer = async <T>(markdown: string): Promise<T> => {
+	// Parse markdown to unsanitized HTML
+	const dirtyHtml: string = await parse(markdown);
 
-	// Sanitize untrusted text
-	const sanitized: string = sanitizeHtml(dirtyText);
+	// Sanitize untrusted HTML
+	const sanitized: string = sanitizeHtml(dirtyHtml);
+
+	// Remove HTML tags to get plain text
+	const text: string = sanitized.replace(/<[^>]*>/g, '');
 
 	// Check grammer via LanguageTool API
 	const url = 'https://api.languagetool.org/v2/check';
-	const response: AxiosResponse = await axios.post(url, {
-		text: sanitized,
-		language: 'auto',
+	const response: AxiosResponse = await axios.post(url, null, {
+		params: {
+			text,
+			language: 'auto',
+		},
 	});
 
 	// Return grammer errors
@@ -23,7 +28,7 @@ export const checkGrammer = async (markdown: string) => {
 };
 
 // Convert Markdown to HTML
-export const convertToHtml = async (markdown: string) => {
+export const convertToHtml = async (markdown: string): Promise<string> => {
 	// Parse markdown to unsanitized HTML
 	const dirtyHtml: string = await parse(markdown);
 

@@ -16,7 +16,7 @@ const app: Express = createServer();
 
 // Start listening on port
 const server: http.Server = app.listen(port, () => {
-	console.log(`\nServer listening on port ${chalk.yellow(port)}\n`);
+	console.log(`\nServer listening on port ${chalk.yellowBright(port)}\n`);
 });
 
 // Application shutdown callback
@@ -28,15 +28,17 @@ const shutdown = () => {
 			if (error) {
 				// Exit with failed
 				console.error(
-					`Port:${chalk.yellow(port)} server shutdown error: ${chalk.red(
-						`${error instanceof Error ? error.message : 'Unhandled error'}`
+					`Port:${chalk.yellowBright(port)} server shutdown error: ${chalk.redBright(
+						error instanceof Error ? error.message : 'Unhandled error'
 					)}`
 				);
 				process.exit(1);
 			}
 
 			// Exit with success
-			console.log(`Port:${chalk.yellow(port)} server shutdown ${chalk.greenBright('successful')}`);
+			console.log(
+				`Port:${chalk.yellowBright(port)} server shutdown ${chalk.greenBright('successful')}`
+			);
 			process.exit(0);
 		});
 	}

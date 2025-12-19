@@ -14,7 +14,7 @@ export const createServer = (): Express => {
 	app.use(express.json());
 
 	// API Route handler
-	app.use('/api', NoteRouter);
+	app.use(NoteRouter);
 
 	// Unhandled routes handler
 	app.use(UnhandledRouter);
