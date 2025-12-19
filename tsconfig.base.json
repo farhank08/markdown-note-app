@@ -1,25 +1,28 @@
 {
 	"compilerOptions": {
-		/* Enforce type safety */
+		// Enforce type safety
 		"strict": true,
 
-		/* Skip type-checking for node_modules .d.ts files */
+		// Skip type-checking for node_modules .d.ts files
 		"skipLibCheck": true,
 
-		/* Prevent import path case mismatches */
+		// Prevent import path case mismatches
 		"forceConsistentCasingInFileNames": true,
 
-		/* Require override keyword to override class methods */
+		// Require override keyword to override class methods
 		"noImplicitOverride": true,
 
-		/* Makes indexed access obj[key] return T | undefined */
+		// Makes indexed access obj[key] return T | undefined
 		"noUncheckedIndexAccess": true,
 
-		/* Allow importing JSON files in Typescript */
+		// Allow importing JSON files in Typescript
 		"resolveJsonModule": true,
 
-		/* Ensures every file can be compiled independently
+		/* Ensure every file can be compiled independently
     Required for vite and tsx */
-		"isolatedModules": true
+		"isolatedModules": true,
+
+		// Allow import X from Y instead of import * as X from Y
+		"esModuleInterop": true
 	}
 }
