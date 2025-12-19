@@ -13,7 +13,7 @@
 		"noImplicitOverride": true,
 
 		// Makes indexed access obj[key] return T | undefined
-		"noUncheckedIndexAccess": true,
+		"noUncheckedIndexedAccess": true,
 
 		// Allow importing JSON files in Typescript
 		"resolveJsonModule": true,
