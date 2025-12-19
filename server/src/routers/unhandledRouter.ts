@@ -2,7 +2,7 @@ import chalk from 'chalk';
 import { Router, Request, Response } from 'express';
 
 // Initialize express router
-const router = Router();
+const router: Router = Router();
 
 router.use((req: Request, res: Response) => {
 	// Handle unhandled route error
