@@ -58,8 +58,8 @@ npm run build
 
 This will:
 
-1. Build the client into static assets (client/dist)
-2. Compile the server (server/dist)
+1. Build the client into static assets (`client/dist`)
+2. Compile the server (`server/dist`)
 
 ---
 
@@ -81,6 +81,44 @@ Access the app at:
 ```
 http://localhost:3000
 ```
+
+---
+
+## Running with Docker (Optional)
+
+This project includes a **production-ready Docker setup** using a multi-stage build and **Node.js v25**. Docker is optional and is intended for users who prefer running the application in a containerized environment.
+
+### Prerequisites
+
+- Docker (Docker Desktop or Docker Engine)
+
+### Build the Docker image
+
+From the repository root, run:
+
+```bash
+docker build -t markdown-note-app .
+```
+
+This will:
+
+- Install dependencies using `npm ci`
+- Build both the client and server
+- Produce a minimal production image containing only compiled assets and runtime dependencies
+
+### Run the container
+
+```bash
+docker run -p 3000:3000 markdown-note-app
+```
+
+Once running, access the application at:
+
+```
+http://localhost:3000
+```
+
+The Docker container runs the application in **production mode**, serving both the API and the built client from a single Node.js process.
 
 ---
 
@@ -117,3 +155,4 @@ No client-side configuration changes are required between environments.
 ## License
 
 This project is licensed under the ISC License.
+
