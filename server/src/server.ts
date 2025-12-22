@@ -9,7 +9,7 @@ import ViewRouter from './routers/viewRouter.js';
 // Resolve path names for ES Module
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const clientDir = path.resolve(__dirname, '../../client/dist');
+const clientDistDir = path.resolve(__dirname, '../../client/dist');
 
 export const createServer = (): Express => {
 	// Initialize server
@@ -22,7 +22,7 @@ export const createServer = (): Express => {
 	app.use(express.json());
 
 	// Send static files
-	app.use(express.static(clientDir));
+	app.use(express.static(clientDistDir));
 
 	// API route handler
 	app.use('/api', ApiRouter);
