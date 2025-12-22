@@ -23,7 +23,7 @@ const server: http.Server = app.listen(port, () => {
 const shutdown = () => {
 	// Shut down server gracefully
 	if (server) {
-		server.close(async (error: unknown) => {
+		server.close((error: unknown) => {
 			// Handle server shutdown error
 			if (error) {
 				// Exit with failed
