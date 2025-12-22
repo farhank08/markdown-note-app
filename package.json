@@ -1,6 +1,7 @@
 {
 	"name": "markdown-note-app",
 	"private": true,
+	"type": "module",
 	"workspaces": [
 		"client",
 		"server"

@@ -32,4 +32,4 @@ COPY --from=builder /app/client/dist ./client/dist
 EXPOSE 3000
 
 # Start the app (root npm start)
-CMD ["npm", "start"]
+CMD ["node", "server/dist/index.js"]
