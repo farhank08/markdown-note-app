@@ -7,4 +7,10 @@ export default defineConfig({
 
 	// Cache directory to root node modules
 	cacheDir: '../node_modules/.vite-client',
+
+	server: {
+		proxy: {
+			'/api': 'http://localhost:3000',
+		},
+	},
 });

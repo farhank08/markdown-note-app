@@ -1,0 +1,45 @@
+.layout {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.header {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	flex: 1;
+}
+
+.footer {
+	margin-top: 1rem;
+	background-color: #0d1117;
+	display: flex;
+	justify-content: center;
+	padding: 0.25rem 0;
+}
+
+.logo {
+	margin: 1rem;
+	padding: 0.5rem;
+	font-size: 1.5rem;
+	font-weight: 500;
+	color: inherit;
+	transition: background-color 0.25s ease, color 0.25s ease;
+}
+.logo:hover {
+	color: #5498e7;
+	background-color: #333;
+	border-radius: 0.25rem;
+}
+
+a {
+	margin: 0 0.5rem;
+}

@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import { Express } from 'express';
 import http from 'http';
 
-import { createServer } from './server';
+import { createServer } from './server.js';
 
 // Load environment variables
 dotenv.config();

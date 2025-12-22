@@ -1,0 +1,48 @@
+.editor {
+	flex: 1;
+	justify-self: center;
+	width: inherit;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+.menubar {
+	background-color: #0d1117;
+	border-radius: 0.25rem;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.p-vert-1 {
+	padding: 1rem 0;
+}
+
+label {
+	font-weight: 500;
+	margin: 0 0.5rem;
+}
+
+/* Override */
+button {
+	border-radius: 0.125rem;
+	padding: 0.125rem 0.5rem;
+	font-family: inherit;
+	font-weight: 400;
+	background-color: inherit;
+	color: rgba(255, 255, 255, 0.87);
+	cursor: pointer;
+	transition: background-color 0.25s ease, color 0.25s ease;
+}
+button:hover {
+	border-color: transparent;
+	background-color: #343942;
+	color: #5498e7;
+}
+button:focus,
+button:focus-visible {
+	outline: none;
+}
+button:active {
+	color: #d74d48;
+}

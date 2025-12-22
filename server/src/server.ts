@@ -1,7 +1,15 @@
 import cors from 'cors';
 import express, { Express } from 'express';
-import NoteRouter from './routers/noteRouter';
-import UnhandledRouter from './routers/unhandledRouter';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import ApiRouter from './routers/apiRouter.js';
+import UnhandledRouter from './routers/unhandledRouter.js';
+import ViewRouter from './routers/viewRouter.js';
+
+// Resolve path names for ES Module
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const clientDir = path.resolve(__dirname, '../../client/dist');
 
 export const createServer = (): Express => {
 	// Initialize server
@@ -13,8 +21,14 @@ export const createServer = (): Express => {
 	// Parse JSON responses
 	app.use(express.json());
 
-	// API Route handler
-	app.use(NoteRouter);
+	// Send static files
+	app.use(express.static(clientDir));
+
+	// API route handler
+	app.use('/api', ApiRouter);
+
+	// View route handler
+	app.use(ViewRouter);
 
 	// Unhandled routes handler
 	app.use(UnhandledRouter);
